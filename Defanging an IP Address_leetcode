@@ -1,0 +1,13 @@
+class Solution {
+public:
+    string defangIPaddr(string address) {
+        int dot1, dot2, dot3;
+        dot1 = address.find('.');
+        address.replace(dot1, 1, "[.]");
+        dot2 = address.find('.', dot1 + 3);
+        address.replace(dot2, 1, "[.]");
+        dot3 = address.find('.', dot2 + 3);
+        address.replace(dot3, 1, "[.]");
+        return address;
+    }
+};

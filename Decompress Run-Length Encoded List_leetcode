@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> decompressRLElist(vector<int>& nums) {
+        vector<int> dc;                               //dc= decompressed
+        int value;
+        for(int i = 0; i < nums.size() - 1; i += 2)
+        {
+            value = nums[i + 1];
+            for(int j = 0; j < nums[i]; j ++)
+            {
+                dc.push_back(value);  //IMPORTANT with pusgback, no need to 
+            }                         //declare the size of vector but need to declare it
+        }                             //if was dc[counter] = value;
+        return dc;
+    }
+};

@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        vector<bool> ret(candies.size());         //important to mention size HERE
+        int big, count;
+        for(int i = 0; i < candies.size(); i ++)
+        {
+            count = 0;
+            for(int j = 0; j < candies.size(); j ++)    //to combine two conditions in for loop use && (AND)
+            {                                           //not ,
+                if(j != i)
+                {
+                    ++ count;
+                    if(count == 1)
+                        big = candies[j];
+                    else if(candies[j] >= big)
+                        big = candies[j];
+                }
+            }
+            if(candies[i] + extraCandies >= big)
+                ret[i] = true;
+            else
+                ret[i] = false;
+        }
+        return ret;
+    }
+};

@@ -1,0 +1,25 @@
+class Solution {
+public:
+    string destCity(vector<vector<string>>& paths) {
+        string str;
+        size_t pos;
+        static const size_t npos = -1;
+        int nomatchcount;
+        for(int i = 0; i < paths.size(); i ++)
+        {
+            str = paths[i][1];
+            nomatchcount = 0;
+            for(int j = 0; j < paths.size(); j ++)
+            {
+                pos = paths[j][0].find(str);
+                if(pos == npos)
+                    nomatchcount ++;
+                else if(pos == 0)
+                    break;
+            }
+            if(nomatchcount == paths.size())
+                break;
+        }
+        ans: return str;
+    }
+};

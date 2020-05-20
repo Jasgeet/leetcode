@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int maximum69Number (int num) {
+        vector<int> revnum;
+        int flag = 0;               //flag = 0 represents no digit in num is changed yet
+        while(num != 0)
+        {
+            revnum.push_back(num % 10);
+            num /= 10;
+        }
+        for(int i = revnum.size() - 1; i >= 0; i --)
+        {
+            if(revnum[i] == 6 && flag == 0)
+            {
+                revnum[i] = 9;      //see replace() function
+                flag = 1;
+            }
+            num += pow(10, i) * revnum[i];
+        }
+        return num;
+    }
+};
